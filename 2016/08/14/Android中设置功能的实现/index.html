@@ -1,0 +1,690 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中设置功能的实现">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/Android中设置功能的实现/index.html">
+<meta property="og:site_name" content="Reed">
+<meta property="og:description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5uquycopoj20ls0fot92.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/af7c282fgw1f5urdmp216j20ls0jijs5.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5ure3zyoqj20oq142abw.jpg">
+<meta property="og:updated_time" content="2017-04-22T08:34:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android中设置功能的实现">
+<meta name="twitter:description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5uquycopoj20ls0fot92.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/14/Android中设置功能的实现/"/>
+
+
+
+
+
+  <title> Android中设置功能的实现 | Reed </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Reed</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android中设置功能的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reed">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reed">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android中设置功能的实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T00:27:34+08:00">
+                2016-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###前言<br>&emsp;&emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。</p>
+<p>###布局视图<br>&emsp;&emsp;官方说法是定义首选项，我觉得说成布局设置界面视图更合适。</p>
+<p>&emsp;&emsp;按照官方指导，首先需要在 res/xml 目录下定义一个xml文件，通常命名为preferences.xml（可以更改命名）。XML 文件的根节点必须是一个 &lt;PreferenceScreen&gt; 元素，可以在此元素内添加每个 &lt;Preference&gt;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;PreferenceScreen xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</div><div class="line"></div><div class="line">    &lt;CheckBoxPreference</div><div class="line">        android:defaultValue=&quot;true&quot;</div><div class="line">        android:key=&quot;checkbox&quot;</div><div class="line">        android:title=&quot;checkbox&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;PreferenceScreen</div><div class="line">        android:key=&quot;scree&quot;</div><div class="line">        android:title=&quot;screen&quot;</div><div class="line">        android:persistent=&quot;false&quot;&gt;</div><div class="line"></div><div class="line">        &lt;SwitchPreference</div><div class="line">            android:key=&quot;switch&quot;</div><div class="line">            android:title=&quot;switch&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;ListPreference</div><div class="line">            android:defaultValue=&quot;1&quot;</div><div class="line">            android:entries=&quot;@array/str_arr&quot;</div><div class="line">            android:entryValues=&quot;@array/str_arr&quot;</div><div class="line">            android:key=&quot;list&quot;</div><div class="line">            android:title=&quot;list&quot; /&gt;</div><div class="line"></div><div class="line">    &lt;/PreferenceScreen&gt;</div><div class="line"></div><div class="line">    &lt;PreferenceCategory</div><div class="line">        android:key=&quot;category&quot;</div><div class="line">        android:title=&quot;category&quot;&gt;</div><div class="line"></div><div class="line">        &lt;EditTextPreference</div><div class="line">            android:key=&quot;edit&quot;</div><div class="line">            android:title=&quot;edit&quot; /&gt;</div><div class="line"></div><div class="line">        &lt;MultiSelectListPreference</div><div class="line">            android:key=&quot;multi&quot;</div><div class="line">            android:title=&quot;multi&quot;</div><div class="line">            android:entries=&quot;@array/str_arr&quot;</div><div class="line">            android:entryValues=&quot;@array/str_arr&quot;/&gt;</div><div class="line"></div><div class="line">    &lt;/PreferenceCategory&gt;</div><div class="line"></div><div class="line">    &lt;Preference android:title=&quot;preference&quot; &gt;</div><div class="line">        &lt;intent android:action=&quot;android.intent.action.VIEW&quot;</div><div class="line">            android:data=&quot;http://www.example.com&quot; /&gt;</div><div class="line">    &lt;/Preference&gt;</div><div class="line"></div><div class="line">&lt;/PreferenceScreen&gt;</div></pre></td></tr></table></figure></p>
+<p>这些元素有不同的属性，其中以下三个属性是通用的：</p>
+<ul>
+<li><p>android:key</p>
+<p>对于要保留数据值的首选项，必须拥有此属性。它指定系统在将此设置的值保存在 SharedPreferences 中时所用的唯一键（字符串）。不需要此属性的仅有情形是：首选项是 PreferenceCategory 或PreferenceScreen，或者首选项指定要调用的 Intent（使用 &lt;intent&gt; 元素）或要显示的 Fragment（使用 android:fragment 属性）。</p>
+</li>
+<li><p>android:title</p>
+<p>此属性为设置提供用户可见的名称。</p>
+</li>
+<li><p>android:defaultValue</p>
+<p>此属性指定系统应该在 SharedPreferences 文件中设置的初始值。您应该为所有设置提供默认值。</p>
+</li>
+</ul>
+<p>&emsp;&emsp;当设置的选项过多时，为了方便用户查看，我们一般会对选项进行分组。分组的形式一般分为两种，一种是使用标题，一种是使用子屏幕（即打开一个新的界面）</p>
+<ul>
+<li><p>使用标题</p>
+<p>利用&lt;PreferenceCategory&gt;标签可以实现如图的效果:<br><img src="http://ww2.sinaimg.cn/large/af7c282fgw1f5uquycopoj20ls0fot92.jpg" alt=""></p>
+</li>
+<li><p>使用子屏幕</p>
+<p>利用&lt;PreferenceScreen&gt;标签可以实现如图效果：</p>
+<p><img src="http://ww1.sinaimg.cn/large/af7c282fgw1f5urdmp216j20ls0jijs5.jpg" alt=""></p>
+<p><img src="http://ww2.sinaimg.cn/large/af7c282fgw1f5ure3zyoqj20oq142abw.jpg" alt=""></p>
+</li>
+</ul>
+<p>具体实现代码见上方代码块</p>
+<p>###值的获取</p>
+<p>想要获取设置项的值，可以通过以下代码实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);</div><div class="line">//T t = pref.getXXX(key, defaultValue);</div><div class="line">String str = pref.getString(&quot;edit&quot;, &quot;&quot;);</div></pre></td></tr></table></figure></p>
+<p>同时，可以实时监控设置项值的变化，利用以下代码:</p>
+<p>首先继承OnSharedPreferenceChangeListener接口，在onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)实现当值发生变化时需要做的操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@Override</div><div class="line">    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) &#123;</div><div class="line">        Log.i(&quot;===========&gt;&gt;&gt;&gt;&gt;&gt;&quot;, key);</div><div class="line">        Log.i(&quot;===========&gt;&gt;&gt;&gt;&gt;&gt;&quot;, (findPreference(key) instanceof CheckBoxPreference) + &quot;&quot;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>###可能会用到的方法</p>
+<ul>
+<li><p><strong>实现设置项各个点击事件</strong></p>
+<p>findPreference(key).setOnPreferenceClickListener(……);</p>
+<p>或者</p>
+<p>实现接口OnPreferenceClickListener</p>
+</li>
+</ul>
+<p>###备注</p>
+<ul>
+<li>如果想要实现Material Design风格的设置界面，可以参考<a href="https://drakeet.me/material-design-settings-activity" target="_blank" rel="external">此博客</a></li>
+<li>其他用法参考<a href="https://developer.android.com/guide/topics/ui/settings.html" target="_blank" rel="external">官方指导文档</a> (需要科学上网)</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/14/搭建翻墙服务器/" rel="next" title="搭建翻墙服务器">
+                <i class="fa fa-chevron-left"></i> 搭建翻墙服务器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/14/Android中利用volley同时上传文件和文本参数/" rel="prev" title="Android中利用volley同时上传文件和文本参数">
+                Android中利用volley同时上传文件和文本参数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Reed" />
+          <p class="site-author-name" itemprop="name">Reed</p>
+           
+              <p class="site-description motion-element" itemprop="description">Everything I Never Told You!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reed</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

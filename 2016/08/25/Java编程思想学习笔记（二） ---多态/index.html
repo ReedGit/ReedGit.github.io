@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="###一般情况 在Java中使用多态需要注意以下几点：  如果某个方法是静态的， 那么该方法就不具有多态性 final修饰的方式是不可被覆盖 private修饰的方法不具备多态性，会被系统自动认为是final修饰的方法，同时对于子类是屏蔽的 虽然子类中可以拥有父类中private修饰的同名方法，编译器不会报错，但是并不会按照我们所期望的运行，所以做好不要采用相同的名字  以代码为例12345678">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java编程思想学习笔记（二） ---多态">
+<meta property="og:url" content="http://yoursite.com/2016/08/25/Java编程思想学习笔记（二） ---多态/index.html">
+<meta property="og:site_name" content="Reed">
+<meta property="og:description" content="###一般情况 在Java中使用多态需要注意以下几点：  如果某个方法是静态的， 那么该方法就不具有多态性 final修饰的方式是不可被覆盖 private修饰的方法不具备多态性，会被系统自动认为是final修饰的方法，同时对于子类是屏蔽的 虽然子类中可以拥有父类中private修饰的同名方法，编译器不会报错，但是并不会按照我们所期望的运行，所以做好不要采用相同的名字  以代码为例12345678">
+<meta property="og:updated_time" content="2017-04-22T08:35:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java编程思想学习笔记（二） ---多态">
+<meta name="twitter:description" content="###一般情况 在Java中使用多态需要注意以下几点：  如果某个方法是静态的， 那么该方法就不具有多态性 final修饰的方式是不可被覆盖 private修饰的方法不具备多态性，会被系统自动认为是final修饰的方法，同时对于子类是屏蔽的 虽然子类中可以拥有父类中private修饰的同名方法，编译器不会报错，但是并不会按照我们所期望的运行，所以做好不要采用相同的名字  以代码为例12345678">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/25/Java编程思想学习笔记（二） ---多态/"/>
+
+
+
+
+
+  <title> Java编程思想学习笔记（二） ---多态 | Reed </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Reed</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/25/Java编程思想学习笔记（二） ---多态/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reed">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reed">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java编程思想学习笔记（二） ---多态
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-25T23:45:16+08:00">
+                2016-08-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###一般情况</p>
+<p>在Java中使用多态需要注意以下几点：</p>
+<ol>
+<li>如果某个方法是静态的， 那么该方法就不具有多态性</li>
+<li>final修饰的方式是不可被覆盖</li>
+<li>private修饰的方法不具备多态性，会被系统自动认为是final修饰的方法，同时对于子类是屏蔽的</li>
+<li>虽然子类中可以拥有父类中private修饰的同名方法，编译器不会报错，但是并不会按照我们所期望的运行，所以做好不要采用相同的名字</li>
+</ol>
+<p>以代码为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class MultiTypeTest &#123;</div><div class="line">	public static void f3() &#123;</div><div class="line">		System.out.println(&quot;multi static&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private void f1() &#123;</div><div class="line">		System.out.println(&quot;multi f1()&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public void f2() &#123;</div><div class="line">		System.out.println(&quot;multi f2()&quot;);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		MultiTypeTest test = new NewType();</div><div class="line">		test.f1();</div><div class="line">		test.f2();</div><div class="line">		test.f3();</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">class NewType extends MultiTypeTest &#123;</div><div class="line">	</div><div class="line">	public void f1() &#123;</div><div class="line">		System.out.println(&quot;new f1()&quot;);</div><div class="line">	&#125;</div><div class="line">	public void f2() &#123;</div><div class="line">		System.out.println(&quot;new f2()&quot;);</div><div class="line">	&#125;</div><div class="line">	public static void f3() &#123;</div><div class="line">		System.out.println(&quot;new static&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行结果如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">multi f1()</div><div class="line">new f2()</div><div class="line">multi static</div></pre></td></tr></table></figure></p>
+<p>由运行结果可知，f1()方法的对比对应的是第3点和第4点，f3()方法的对比对应的是第1点，至于第二点，编译器会报错。</p>
+<p><strong>总结</strong></p>
+<ol>
+<li>子类继承父类，子类可以继承父类的所有非private方法和属性，同时也可以重写父类非final和static修饰的方法</li>
+<li>当子类的引用指向父类的对象时，父类的对象除可以调用自己本身的属性和方法外，只能调用子类重写的方法，不可调用子类特有的方法和属性。</li>
+</ol>
+<p>###构造器内部的多态</p>
+<p>构造器初始化的实际过程：</p>
+<ol>
+<li>在其他任何事物发生之前，将分配给对象的存储空间初始化成二进制的零。</li>
+<li>调用基类构造方法。此时如果基类构造方法中调用了一个方法，该方法在子类中被重写过，那么实际调用的是子类重写的方法，见稍后代码。</li>
+<li>按照申明顺序调用成员的初始化方法</li>
+<li>调用子类的构造方法</li>
+</ol>
+<p>示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Base &#123;</div><div class="line">	void print() &#123;</div><div class="line">		System.out.println(&quot;print()&quot;);</div><div class="line">	&#125;</div><div class="line">	public Base() &#123;</div><div class="line">		System.out.println(&quot;base() before&quot;);</div><div class="line">		print();</div><div class="line">		System.out.println(&quot;base() after&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">class ExtendBase extends Base &#123;</div><div class="line">	private int value = 1;</div><div class="line">	void print() &#123;</div><div class="line">		System.out.println(&quot;extend, value = &quot;+ value);</div><div class="line">	&#125;</div><div class="line">	public ExtendBase(int value) &#123;</div><div class="line">		System.out.println(&quot;extend init before, value = &quot;+ this.value);</div><div class="line">		this.value = value;</div><div class="line">		System.out.println(&quot;extend init after, value = &quot;+ this.value);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line">public class MultiTypeTest &#123;</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		new ExtendBase(5);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输入结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">base() before</div><div class="line">extend, value = 0</div><div class="line">base() after</div><div class="line">extend init before, value = 1</div><div class="line">extend init after, value = 5</div></pre></td></tr></table></figure></p>
+<p>有结果可知，先初始基类构造方法，之后由于基类构造方法里调用了print()方法，故调用的是子类的print()方法，同时此时的value值为0（参见第一点）， 之后便是正常的顺序执行初始化过程。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/19/Android中自定义键盘的实现/" rel="prev" title="Android中自定义键盘的实现">
+                Android中自定义键盘的实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Reed" />
+          <p class="site-author-name" itemprop="name">Reed</p>
+           
+              <p class="site-description motion-element" itemprop="description">Everything I Never Told You!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reed</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

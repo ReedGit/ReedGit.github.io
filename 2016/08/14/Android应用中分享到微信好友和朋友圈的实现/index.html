@@ -1,0 +1,675 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言 实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。 申请AppID 这部分大家去微信开发者平台注册账号按照提示创建应用就好了，这里是开发者平台的地址。这里要注意的是创建应用是需要提供应用的签名，大家可以在">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 应用中分享到微信好友和朋友圈的实现">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/index.html">
+<meta property="og:site_name" content="Reed">
+<meta property="og:description" content="前言 实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。 申请AppID 这部分大家去微信开发者平台注册账号按照提示创建应用就好了，这里是开发者平台的地址。这里要注意的是创建应用是需要提供应用的签名，大家可以在">
+<meta property="og:updated_time" content="2017-04-22T08:32:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android 应用中分享到微信好友和朋友圈的实现">
+<meta name="twitter:description" content="前言 实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。 申请AppID 这部分大家去微信开发者平台注册账号按照提示创建应用就好了，这里是开发者平台的地址。这里要注意的是创建应用是需要提供应用的签名，大家可以在">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/"/>
+
+
+
+
+
+  <title> Android 应用中分享到微信好友和朋友圈的实现 | Reed </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Reed</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Reed">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reed">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android 应用中分享到微信好友和朋友圈的实现
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T00:26:11+08:00">
+                2016-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>前言</strong></p>
+<p>实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。</p>
+<p><strong>申请AppID</strong></p>
+<p>这部分大家去微信开发者平台注册账号按照提示创建应用就好了，<a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN" target="_blank" rel="external">这里是开发者平台的地址</a>。这里要注意的是创建应用是需要提供应用的签名，大家可以在<a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319167&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">链接</a>里下载签名生成工具安装在手机上获得。</p>
+<p><strong>引入jar包</strong></p>
+<p>在<a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319167&amp;lang=zh_CN" target="_blank" rel="external">官方资源下载页</a>下载jar包，然后将包导入工程。</p>
+<p><strong>在AndroidManifest.xml中添加权限</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;</div><div class="line">&lt;uses-permission android:name=&quot;android.permission.READ_PHONE_STATE&quot; /&gt;</div></pre></td></tr></table></figure>
+<p><strong>注册到微信</strong></p>
+<p>要使你的程序启动后微信终端能响应你的程序，必须在代码中你需要的位置向微信终端注册你的id。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//注册应用id到微信</div><div class="line">private void regToWx() &#123;</div><div class="line">    //通过WXAPIFactory工厂，获取IWXAPI的实例</div><div class="line">    api = WXAPIFactory.createWXAPI(context, APP_ID, true);</div><div class="line">    //将应用的appId注册到微信</div><div class="line">    api.registerApp(APP_ID);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>分享</strong></p>
+<p> 1.分享文字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 分享文字到朋友圈或者好友</div><div class="line"> *</div><div class="line"> * @param text  文本内容</div><div class="line"> * @param scene 分享方式：好友还是朋友圈</div><div class="line"> */</div><div class="line">public boolean shareText(String text, int scene) &#123;</div><div class="line">    //初始化一个WXTextObject对象，填写分享的文本对象</div><div class="line">    WXTextObject textObj = new WXTextObject();</div><div class="line">    textObj.text = text;</div><div class="line">    return share(textObj, text, scene);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> 2.分享图片</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 分享图片到朋友圈或者好友</div><div class="line"> *</div><div class="line"> * @param bmp   图片的Bitmap对象</div><div class="line"> * @param scene 分享方式：好友还是朋友圈</div><div class="line"> */</div><div class="line">public boolean sharePic(Bitmap bmp, int scene) &#123;</div><div class="line">    //初始化一个WXImageObject对象</div><div class="line">    WXImageObject imageObj = new WXImageObject(bmp);</div><div class="line">    //设置缩略图</div><div class="line">    Bitmap thumb = Bitmap.createScaledBitmap(bmp, 60, 60, true);</div><div class="line">    bmp.recycle();</div><div class="line">    return share(imageObj, bmp, scene);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3.分享网页</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 分享网页到朋友圈或者好友，视频和音乐的分享和网页大同小异，只是创建的对象不同。</div><div class="line"> * 详情参考官方文档：</div><div class="line"> * https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419317340&amp;token=&amp;lang=zh_CN</div><div class="line"> *</div><div class="line"> * @param url         网页的url</div><div class="line"> * @param title       显示分享网页的标题</div><div class="line"> * @param description 对网页的描述</div><div class="line"> * @param scene       分享方式：好友还是朋友圈</div><div class="line"> */</div><div class="line">public boolean shareUrl(String url, String title, Bitmap thumb, String description, int scene) &#123;</div><div class="line">    //初试话一个WXWebpageObject对象，填写url</div><div class="line">    WXWebpageObject webPage = new WXWebpageObject();</div><div class="line">    webPage.webpageUrl = url;</div><div class="line">    return share(webPage, title, thumb, description, scene);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中share的重载函数如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">private boolean share(WXMediaMessage.IMediaObject mediaObject, Bitmap thumb, int scene) &#123;</div><div class="line">        return share(mediaObject, null, thumb, null, scene);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">private boolean share(WXMediaMessage.IMediaObject mediaObject, String description, int scene) &#123;</div><div class="line">    return share(mediaObject, null, null, description, scene);</div><div class="line">&#125;</div><div class="line"></div><div class="line">private boolean share(WXMediaMessage.IMediaObject mediaObject, String title, Bitmap thumb, String description, int scene) &#123;</div><div class="line">    //初始化一个WXMediaMessage对象，填写标题、描述</div><div class="line">    WXMediaMessage msg = new WXMediaMessage(mediaObject);</div><div class="line">    if (title != null) &#123;</div><div class="line">        msg.title = title;</div><div class="line">    &#125;</div><div class="line">    if (description != null) &#123;</div><div class="line">        msg.description = description;</div><div class="line">    &#125;</div><div class="line">    if (thumb != null) &#123;</div><div class="line">        msg.thumbData = bmpToByteArray(thumb, true);</div><div class="line">    &#125;</div><div class="line">    //构造一个Req</div><div class="line">    SendMessageToWX.Req req = new SendMessageToWX.Req();</div><div class="line">    req.transaction = String.valueOf(System.currentTimeMillis());</div><div class="line">    req.message = msg;</div><div class="line">    req.scene = scene;</div><div class="line">    return api.sendReq(req);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>####注：如果是分享到朋友圈，scene = SendMessageToWX.Req.WXSceneTimeline；如果分享到好友， scene = SendMessageToWX.Req.WXSceneSession。</p>
+<p><strong>判断是否支持分享到朋友圈</strong></p>
+<p>只有微信4.2以上支持，如果需要检查微信版本支持API的情况， 可调用IWXAPI的getWXAppSupportAPI方法,0x21020001及以上支持发送朋友圈</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//判断是否支持转发到朋友圈</div><div class="line">//微信4.2以上支持，如果需要检查微信版本支持API的情况， 可调用IWXAPI的getWXAppSupportAPI方法,0x21020001及以上支持发送朋友圈</div><div class="line">public boolean isSupportWX() &#123;</div><div class="line">    int wxSdkVersion = api.getWXAppSupportAPI();</div><div class="line">    return wxSdkVersion &gt;= TIMELINE_SUPPORTED_VERSION;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>微信返回值的接收</strong></p>
+<p>如果需要对分享的结果进行处理，那么就需要对微信的返回值进行判断。问题来了，如何获取微信的返回值呢？</p>
+<ol>
+<li>在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自Activity，并在manifest文件里面加上exported属性，设置为true。</li>
+<li>实现IWXAPIEventHandler接口，微信发送的请求将回调到onReq方法，发送到微信请求的响应结果将回调到onResp方法，此处我们用到的是onResp方法。</li>
+<li>在WXEntryActivity中将接收到的intent及实现了IWXAPIEventHandler接口的对象传递给IWXAPI接口的handleIntent方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">IWXAPI api = WXAPIFactory.createWXAPI(this, WeChatShareUtil.APP_ID, false);</div><div class="line">api.handleIntent(getIntent(),this);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>项目地址</strong></p>
+<p>源码我已上传至本人的<a href="https://github.com/ReedGit/WeChatShareDemo" target="_blank" rel="external">Github</a>，欢迎访问指导</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/14/关于Retrofit 2.0的使用/" rel="next" title="关于Retrofit 2.0的使用">
+                <i class="fa fa-chevron-left"></i> 关于Retrofit 2.0的使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/14/RecyclerView的痛点使用/" rel="prev" title="RecyclerView的痛点使用">
+                RecyclerView的痛点使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Reed" />
+          <p class="site-author-name" itemprop="name">Reed</p>
+           
+              <p class="site-description motion-element" itemprop="description">Everything I Never Told You!</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Reed</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
