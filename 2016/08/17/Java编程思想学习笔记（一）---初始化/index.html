@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="一般来说， Java中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;#">
+<meta name="description" content="一般来说， Java 中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java编程思想学习笔记（一）---初始化">
-<meta property="og:url" content="http://yoursite.com/2016/08/17/Java编程思想学习笔记（一）---初始化/index.html">
+<meta property="og:title" content="Java编程思想学习笔记（一）—— 初始化">
+<meta property="og:url" content="http://reedw.me/2016/08/17/Java编程思想学习笔记（一）---初始化/index.html">
 <meta property="og:site_name" content="Reed">
-<meta property="og:description" content="一般来说， Java中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;#">
-<meta property="og:updated_time" content="2017-04-22T09:04:39.000Z">
+<meta property="og:description" content="一般来说， Java 中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;">
+<meta property="og:updated_time" content="2017-04-23T06:19:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java编程思想学习笔记（一）---初始化">
-<meta name="twitter:description" content="一般来说， Java中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;#">
+<meta name="twitter:title" content="Java编程思想学习笔记（一）—— 初始化">
+<meta name="twitter:description" content="一般来说， Java 中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。 以以下代码为例12345678910111213141516171819202122232425class A &amp;#123;	public A(int i) &amp;">
 
 
 
@@ -108,7 +108,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/17/Java编程思想学习笔记（一）---初始化/"/>
+  <link rel="canonical" href="http://reedw.me/2016/08/17/Java编程思想学习笔记（一）---初始化/"/>
 
 
 
 
 
-  <title> Java编程思想学习笔记（一）---初始化 | Reed </title>
+  <title> Java编程思想学习笔记（一）—— 初始化 | Reed </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,6 +205,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -253,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/17/Java编程思想学习笔记（一）---初始化/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/17/Java编程思想学习笔记（一）---初始化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -274,7 +284,7 @@
             
             
               
-                Java编程思想学习笔记（一）---初始化
+                Java编程思想学习笔记（一）—— 初始化
               
             
           </h1>
@@ -300,6 +310,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -324,16 +356,16 @@
       
 
       
-        <p>一般来说， Java中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。</p>
+        <p>一般来说， Java 中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。</p>
 <p>以以下代码为例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">A</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"A"</span> + i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> A a1 = <span class="keyword">new</span> A(<span class="number">1</span>);</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">B</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"B"</span> + i);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">static</span> B b1 = <span class="keyword">new</span> B(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> B b2 = <span class="keyword">new</span> B(<span class="number">2</span>);</div><div class="line">	B b3 = <span class="keyword">new</span> B(<span class="number">3</span>);</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"C"</span> + i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InitTest</span> </span>&#123;</div><div class="line">	<span class="keyword">static</span> C c1 = <span class="keyword">new</span> C(<span class="number">1</span>);</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		C c2 = <span class="keyword">new</span> C(<span class="number">2</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>最后在控制台输出的结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">A1</div><div class="line">B1</div><div class="line">B2</div><div class="line">B3</div><div class="line">C1</div><div class="line">B3</div><div class="line">C2</div></pre></td></tr></table></figure></p>
 <p>由输出结果可以看出：</p>
 <ol>
-<li>当执行程序时， 首先是先进行c1的初始化， 再进行C2的初始化。</li>
-<li>在进行c1初始化时， 首先进行b2的初始化， 再进行b3的初始化， 最后才会执行构造方法。</li>
-<li>在进行b2初始化时， 同样的先进行a1的初始化， 再进行b1的初始化， 最后执行构造方法</li>
-<li>由于a1, b1, b2是静态成员变量， 所以只会进行一次初始化， 在c2初始化时便不再执行相应的初始化方法</li>
-<li>由于b3是非静态成员变量， 所以c1和c2初始化时都会初始化b3</li>
+<li>当执行程序时， 首先是先进行 c1 的初始化， 再进行 c2 的初始化。</li>
+<li>在进行 c1 初始化时， 首先进行 b2 的初始化， 再进行 b3 的初始化， 最后才会执行构造方法。</li>
+<li>在进行 b2 初始化时， 同样的先进行 a1 的初始化， 再进行 b1 的初始化， 最后执行构造方法</li>
+<li>由于 a1, b1, b2 是静态成员变量， 所以只会进行一次初始化， 在 c2 初始化时便不再执行相应的初始化方法</li>
+<li>由于b3是非静态成员变量， 所以 c1 和 c2 初始化时都会初始化 b3</li>
 </ol>
 
       
@@ -381,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/14/搭建ghost博客/" rel="prev" title="搭建ghost博客">
-                搭建ghost博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/14/搭建ghost博客/" rel="prev" title="搭建Ghost博客">
+                搭建Ghost博客 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -453,7 +485,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -518,7 +568,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -93,7 +93,7 @@
 <meta name="description" content="Everything I Never Told You!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Reed">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://reedw.me/index.html">
 <meta property="og:site_name" content="Reed">
 <meta property="og:description" content="Everything I Never Told You!">
 <meta name="twitter:card" content="summary">
@@ -106,7 +106,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://reedw.me/"/>
 
 
 
@@ -205,6 +205,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -253,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/25/Java编程思想学习笔记（二） ---多态/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/25/Java编程思想学习笔记（二） ---多态/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -276,7 +286,7 @@
               
                 
                 <a class="post-title-link" href="/2016/08/25/Java编程思想学习笔记（二） ---多态/" itemprop="url">
-                  Java编程思想学习笔记（二） ---多态
+                  Java编程思想学习笔记（二）—— 多态
                 </a>
               
             
@@ -302,6 +312,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,13 +361,12 @@
       
         
           
-          ###一般情况
-在Java中使用多态需要注意以下几点：
+          一般情况在 Java 中使用多态需要注意以下几点：
 
 如果某个方法是静态的， 那么该方法就不具有多态性
-final修饰的方式是不可被覆盖
-private修饰的方法不具备多态性，会被系统自动认为是final修饰的方法，同时对于子类是屏蔽的
-虽然子类中可以拥有父类中private修饰的同名方法，编译
+final 修饰的方式是不可被覆盖
+private 修饰的方法不具备多态性，会被系统自动认为是 final 修饰的方法，同时对于子类是屏蔽的
+虽然子类中可以拥有父类中 private 修饰的同名方
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -385,7 +416,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/19/Android中自定义键盘的实现/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/19/Android中自定义键盘的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -435,6 +466,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -461,10 +514,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          前言
-由于项目需求， 需要自定义一个数字键盘用于输入数字， 同时要实现简单的计算器功能，即加减乘除。下面，我以自定义一个计算器键盘来说明实现一个自定义键盘的过程
-定义布局
-自定义键盘的第一步，就是确定布局。首先在资源文件夹下建一个xml目录，在目录中新建一个键盘布局文件，比如keyboard.xml
+          前言由于项目需求， 需要自定义一个数字键盘用于输入数字， 同时要实现简单的计算器功能，即加减乘除。下面，我以自定义一个计算器键盘来说明实现一个自定义键盘的过程
+定义布局自定义键盘的第一步，就是确定布局。首先在资源文件夹下建一个xml目录，在目录中新建一个键盘布局文件，比如 keyboard.xml。
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -514,7 +565,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/17/Java编程思想学习笔记（一）---初始化/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/17/Java编程思想学习笔记（一）---初始化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -537,7 +588,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
               
                 
                 <a class="post-title-link" href="/2016/08/17/Java编程思想学习笔记（一）---初始化/" itemprop="url">
-                  Java编程思想学习笔记（一）---初始化
+                  Java编程思想学习笔记（一）—— 初始化
                 </a>
               
             
@@ -563,6 +614,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -590,8 +663,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          一般来说， Java中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。
-以以下代码为例123456789101112131415161
+          一般来说， Java 中对象的初始化顺序是先初始化静态成员变量， 再初始化非静态成员变量， 最后调用构造方法, 需要注意的是静态成员变量只会在该类第一次初始化一个对象的时候进行初始化， 之后. 初始化对象时将不再进行静态成员变量的初始化。
+以以下代码为例12345678910111213141516
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -641,7 +714,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/搭建ghost博客/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/搭建ghost博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -664,7 +737,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
               
                 
                 <a class="post-title-link" href="/2016/08/14/搭建ghost博客/" itemprop="url">
-                  搭建ghost博客
+                  搭建Ghost博客
                 </a>
               
             
@@ -717,8 +790,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          ###初始化VPS如果没有安装yum源，先安装yum源。之后安装依赖文件123yum update //更新yum源  yum groupinstall &quot;Development Tools&quot; //安装开发工具组包  yum install wget
-###安装mysql1. 下
+          初始化 VPS如果没有安装 yum 源，先安装 yum 源。之后安装依赖文件123$ yum update //更新yum源  $ yum groupinstall "Development Tools" //安装开发工具组包  $ yum install wget
+安装 mysql1. 下载 My
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -768,7 +841,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/搭建翻墙服务器/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/搭建翻墙服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -844,8 +917,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          ###安装pip12$ curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;$ python get-pip.py
-###安装shadowsocks12$ pip install --upgra
+          安装pip12$ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"$ python get-pip.py
+安装 shadowsocks12$ pip install --upgrade pip$ pip install shado
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -895,7 +968,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android中设置功能的实现/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/Android中设置功能的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -945,6 +1018,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -971,7 +1066,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          ###前言&emsp;&emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验
+          前言&emsp;&emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1021,7 +1116,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android中利用volley同时上传文件和文本参数/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/Android中利用volley同时上传文件和文本参数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -1071,6 +1166,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1097,8 +1214,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          前言
-在做项目时利用了Volley网络库与服务器之间进行通信，但Volley并没有现成的上传文件的Request可以调用，网上搜索一圈发现很多都是基于HttpClient进行自定义Request封装，可是无奈android 6.0之后移除了HttpClient的代码，只能自己基于HttpURLCon
+          前言在做项目时利用了 Volley 网络库与服务器之间进行通信，但 Volley 并没有现成的上传文件的 Request 可以调用，网上搜索一圈发现很多都是基于 HttpClient 进行自定义 Request 封装，可是无奈 Android 6.0 之后移除了 HttpClient 的代码，只能自
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1148,7 +1264,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/关于Retrofit 2.0的使用/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/关于Retrofit 2.0的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -1198,6 +1314,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1224,10 +1362,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          ##前言
-前不久retrofit 2.0正式发布，一直很想试试看这款很火的网络库，所以最近有点时间稍微研究了下retrofit 2.0的使用。苦于网上虽然有很多相关教程，但是很少有代码示例和使用说明，所以，我写点自己对于retrofit使用上的理解，并附上自己的demo源码。
-##配置
-在工程里添加
+          前言前不久 Retrofit 2.0 正式发布，一直很想试试看这款很火的网络库，所以最近有点时间稍微研究了下 Retrofit 2.0 的使用。苦于网上虽然有很多相关教程，但是很少有代码示例和使用说明，所以，我写点自己对于 Retrofit 使用上的理解，并附上自己的 demo 源码。
+配置在工程里
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1277,7 +1413,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -1327,6 +1463,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1353,10 +1511,8 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          前言
-实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。
-申请AppID
-这部分大家去微信开发者平台注册账号按
+          前言实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。
+申请 AppID这部分大家去微信开发者平台注册账号按照
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1406,7 +1562,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/RecyclerView的痛点使用/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/RecyclerView的痛点使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -1456,6 +1612,28 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1482,8 +1660,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
       
         
           
-          ##前言
-申明：这里不提供封装好的RecylerView库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的RecylerView的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在Android 5.0之后，Google引入Materia
+          前言申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在 Android 5.0 之后，Google 引入 Ma
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1576,7 +1753,25 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -1641,7 +1836,7 @@ private修饰的方法不具备多态性，会被系统自动认为是final修�
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

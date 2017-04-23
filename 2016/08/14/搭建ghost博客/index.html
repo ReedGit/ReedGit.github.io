@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="###初始化VPS如果没有安装yum源，先安装yum源。之后安装依赖文件123yum update //更新yum源  yum groupinstall &amp;quot;Development Tools&amp;quot; //安装开发工具组包  yum install wget ###安装mysql1. 下载MySQL官方的Yum Repository1wget http://dev.mysql.com/">
+<meta name="description" content="初始化 VPS如果没有安装 yum 源，先安装 yum 源。之后安装依赖文件123$ yum update //更新yum源  $ yum groupinstall &quot;Development Tools&quot; //安装开发工具组包  $ yum install wget 安装 mysql1. 下载 MySQL 官方的 Yum Repository1wget http://dev.mysql.com/g">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建ghost博客">
-<meta property="og:url" content="http://yoursite.com/2016/08/14/搭建ghost博客/index.html">
+<meta property="og:title" content="搭建Ghost博客">
+<meta property="og:url" content="http://reedw.me/2016/08/14/搭建ghost博客/index.html">
 <meta property="og:site_name" content="Reed">
-<meta property="og:description" content="###初始化VPS如果没有安装yum源，先安装yum源。之后安装依赖文件123yum update //更新yum源  yum groupinstall &amp;quot;Development Tools&amp;quot; //安装开发工具组包  yum install wget ###安装mysql1. 下载MySQL官方的Yum Repository1wget http://dev.mysql.com/">
-<meta property="og:updated_time" content="2017-04-22T08:33:49.000Z">
+<meta property="og:description" content="初始化 VPS如果没有安装 yum 源，先安装 yum 源。之后安装依赖文件123$ yum update //更新yum源  $ yum groupinstall &quot;Development Tools&quot; //安装开发工具组包  $ yum install wget 安装 mysql1. 下载 MySQL 官方的 Yum Repository1wget http://dev.mysql.com/g">
+<meta property="og:updated_time" content="2017-04-23T06:30:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="搭建ghost博客">
-<meta name="twitter:description" content="###初始化VPS如果没有安装yum源，先安装yum源。之后安装依赖文件123yum update //更新yum源  yum groupinstall &amp;quot;Development Tools&amp;quot; //安装开发工具组包  yum install wget ###安装mysql1. 下载MySQL官方的Yum Repository1wget http://dev.mysql.com/">
+<meta name="twitter:title" content="搭建Ghost博客">
+<meta name="twitter:description" content="初始化 VPS如果没有安装 yum 源，先安装 yum 源。之后安装依赖文件123$ yum update //更新yum源  $ yum groupinstall &quot;Development Tools&quot; //安装开发工具组包  $ yum install wget 安装 mysql1. 下载 MySQL 官方的 Yum Repository1wget http://dev.mysql.com/g">
 
 
 
@@ -108,7 +108,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/14/搭建ghost博客/"/>
+  <link rel="canonical" href="http://reedw.me/2016/08/14/搭建ghost博客/"/>
 
 
 
 
 
-  <title> 搭建ghost博客 | Reed </title>
+  <title> 搭建Ghost博客 | Reed </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -205,6 +205,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -253,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/搭建ghost博客/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/搭建ghost博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -274,7 +284,7 @@
             
             
               
-                搭建ghost博客
+                搭建Ghost博客
               
             
           </h1>
@@ -324,24 +334,24 @@
       
 
       
-        <p>###初始化VPS<br>如果没有安装yum源，先安装yum源。之后安装依赖文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum update //更新yum源  </div><div class="line">yum groupinstall &quot;Development Tools&quot; //安装开发工具组包  </div><div class="line">yum install wget</div></pre></td></tr></table></figure></p>
-<p>###安装mysql<br><strong>1. 下载MySQL官方的Yum Repository</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</div></pre></td></tr></table></figure></p>
-<p><strong>2. 安装MySQL的Yum Repository</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</div></pre></td></tr></table></figure></p>
-<p><strong>3. 安装MySQL数据库的服务器版本</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mysql-community-server</div></pre></td></tr></table></figure></p>
-<p><strong>4. 启动数据库</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">systemctl enable mysqld</div><div class="line">systemctl start  mysqld.service</div><div class="line">//查看运行状态</div><div class="line">systemctl status mysqld.service</div><div class="line">service mysqld restart</div></pre></td></tr></table></figure></p>
-<p><strong>5. 设置数据库密码</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//5.7以上版本要先获取初始密码</div><div class="line">grep &quot;password&quot; /var/log/mysqld.log</div><div class="line">//利用初始密码登录</div><div class="line">mysql -uroot -p</div><div class="line">//设置新密码，必须包括英文、数字、特殊字符等</div><div class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root&apos;;</div><div class="line"></div><div class="line">//5.6版本</div><div class="line">mysql -u root</div><div class="line">set password for &apos;root&apos;@&apos;localhost&apos; =password(&apos;root&apos;);</div></pre></td></tr></table></figure></p>
-<p><strong>6. 编码</strong><br>在/etc/my.cnf末尾添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[mysql]</div><div class="line">default-character-set = utf8</div></pre></td></tr></table></figure></p>
-<p>修改远程连接设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysql&gt; grant all privileges on *.* to root@&apos;%&apos;identified by &apos;new password&apos;;</div></pre></td></tr></table></figure></p>
-<p><strong>7. 创建名为ghost的用户并新建名为ghost的数据库，同时给ghost用户授予ghost数据库的所有权限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE ghost; </div><div class="line">GRANT ALL PRIVILEGES ON ghost.* To &apos;ghost&apos;@&apos;127.0.0.1&apos; IDENTIFIED BY &apos;为ghost用户设置一个与root不同的密码&apos;;</div></pre></td></tr></table></figure></p>
-<p>###编译安装node.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz</div><div class="line">tar zxvf node-v0.10.40.tar.gz</div><div class="line">rm node-v0.10.40.tar.gz</div><div class="line">cd node-v0.10.40</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
-<p>###编译安装nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install nginx</div></pre></td></tr></table></figure></p>
-<p>###运行nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl enable nginx</div><div class="line">systemctl start nginx</div></pre></td></tr></table></figure></p>
-<h3 id="配置-Nginx-的反向代理"><a href="#配置-Nginx-的反向代理" class="headerlink" title="配置 Nginx 的反向代理"></a>配置 Nginx 的反向代理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">vi /etc/nginx/conf.d/default.conf</div><div class="line">server &#123;</div><div class="line">    listen 80;</div><div class="line">    server_name reedw.me(填写博客地址)</div><div class="line">    location / &#123;</div><div class="line">        proxy_set_header   X-Real-IP $remote_addr;</div><div class="line">        proxy_set_header   Host      $http_host;</div><div class="line">        proxy_pass         http://127.0.0.1:2368;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>###重新启动 Nginx 服务器,让设置生效。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart nginx</div></pre></td></tr></table></figure></p>
-<p>###修改服务器时间<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install -y ntp</div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure></p>
-<p>###安装Ghost<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd /srv/www/</div><div class="line">wget http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip</div><div class="line">unzip -d ghost Ghost-0.7.4-zh-full.zip //解压</div><div class="line">cd /srv/www/ghost</div></pre></td></tr></table></figure></p>
-<p>###编辑ghost的配置文件<br>我们进入 Ghost 系统目录，为 Ghost 增加配置文件并配置数据库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">cd /srv/www/ghost</div><div class="line">cp config.example.js config.js</div><div class="line">vi config.js</div><div class="line"></div><div class="line">production: &#123; </div><div class="line"></div><div class="line">    url: &apos;http://reedw.me&apos;, //你的blog地址</div><div class="line">    mail: &#123;&#125;,</div><div class="line">    database: &#123;</div><div class="line">        client: &apos;mysql&apos;,</div><div class="line">        connection: &#123;</div><div class="line">            host     : &apos;127.0.0.1&apos;, </div><div class="line">            user     : &apos;root&apos;, </div><div class="line">            password : &apos;root&apos;, </div><div class="line">            database : &apos;ghost&apos;,</div><div class="line">            charset  : &apos;utf8&apos;</div><div class="line">    &#125;,</div><div class="line">        debug: false</div><div class="line">    &#125;,</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
-<p>###以生产模式运行 Ghost<br>安装forever<br>npm install forever -g<br>运行ghost<br>cd /srv/www/ghost<br>NODE_ENV=production forever start index.js</p>
+        <h1 id="初始化-VPS"><a href="#初始化-VPS" class="headerlink" title="初始化 VPS"></a>初始化 VPS</h1><p>如果没有安装 yum 源，先安装 yum 源。之后安装依赖文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">$</span> yum update //更新yum源  </div><div class="line"><span class="meta">$</span> yum groupinstall "Development Tools" //安装开发工具组包  </div><div class="line"><span class="meta">$</span> yum install wget</div></pre></td></tr></table></figure></p>
+<h1 id="安装-mysql"><a href="#安装-mysql" class="headerlink" title="安装 mysql"></a>安装 mysql</h1><p><strong>1. 下载 MySQL 官方的 Yum Repository</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</div></pre></td></tr></table></figure></p>
+<p><strong>2. 安装 MySQL 的 Yum Repository</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh mysql-community-release-el7-5.noarch.rpm</div></pre></td></tr></table></figure></p>
+<p><strong>3. 安装 MySQL 数据库的服务器版本</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install mysql-community-server</div></pre></td></tr></table></figure></p>
+<p><strong>4. 启动数据库</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">systemctl enable mysqld</div><div class="line">systemctl start  mysqld.service</div><div class="line">//查看运行状态</div><div class="line">systemctl status mysqld.service</div><div class="line">service mysqld restart</div></pre></td></tr></table></figure></p>
+<p><strong>5. 设置数据库密码</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//5.7以上版本要先获取初始密码</div><div class="line">grep "password" /var/log/mysqld.log</div><div class="line">//利用初始密码登录</div><div class="line">mysql -uroot -p</div><div class="line">//设置新密码，必须包括英文、数字、特殊字符等</div><div class="line">ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';</div><div class="line"></div><div class="line">//5.6版本</div><div class="line">mysql -u root</div><div class="line">set password for 'root'@'localhost' =password('root');</div></pre></td></tr></table></figure></p>
+<p><strong>6. 编码</strong><br>在/etc/my.cnf末尾添加<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[mysql]</div><div class="line">default-character-set = utf8</div></pre></td></tr></table></figure></p>
+<p>修改远程连接设置<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">mysql&gt;</span> grant all privileges on *.* to root@'%'identified by 'new password';</div></pre></td></tr></table></figure></p>
+<p><strong>7. 创建名为 ghost 的用户并新建名为 ghost 的数据库，同时给 ghost 用户授予 ghost 数据库的所有权限</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CREATE DATABASE ghost; </div><div class="line">GRANT ALL PRIVILEGES ON ghost.* To 'ghost'@'127.0.0.1' IDENTIFIED BY '为ghost用户设置一个与root不同的密码';</div></pre></td></tr></table></figure></p>
+<h1 id="编译安装-node-js"><a href="#编译安装-node-js" class="headerlink" title="编译安装 node.js"></a>编译安装 node.js</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget http://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz</div><div class="line">tar zxvf node-v0.10.40.tar.gz</div><div class="line">rm node-v0.10.40.tar.gz</div><div class="line">cd node-v0.10.40</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h1 id="编译安装-nginx"><a href="#编译安装-nginx" class="headerlink" title="编译安装 nginx"></a>编译安装 nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install nginx</div></pre></td></tr></table></figure>
+<h1 id="运行-nginx"><a href="#运行-nginx" class="headerlink" title="运行 nginx"></a>运行 nginx</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl enable nginx</div><div class="line">systemctl start nginx</div></pre></td></tr></table></figure>
+<h1 id="配置-Nginx-的反向代理"><a href="#配置-Nginx-的反向代理" class="headerlink" title="配置 Nginx 的反向代理"></a>配置 Nginx 的反向代理</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">vi /etc/nginx/conf.d/default.conf</div><div class="line">server &#123;</div><div class="line">    listen 80;</div><div class="line">    server_name reedw.me(填写博客地址)</div><div class="line">    location / &#123;</div><div class="line">        proxy_set_header   X-Real-IP $remote_addr;</div><div class="line">        proxy_set_header   Host      $http_host;</div><div class="line">        proxy_pass         http://127.0.0.1:2368;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="重新启动-Nginx-服务器-让设置生效。"><a href="#重新启动-Nginx-服务器-让设置生效。" class="headerlink" title="重新启动 Nginx 服务器,让设置生效。"></a>重新启动 Nginx 服务器,让设置生效。</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl restart nginx</div></pre></td></tr></table></figure>
+<h1 id="修改服务器时间"><a href="#修改服务器时间" class="headerlink" title="修改服务器时间"></a>修改服务器时间</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install -y ntp</div><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</div></pre></td></tr></table></figure>
+<h1 id="安装-Ghost"><a href="#安装-Ghost" class="headerlink" title="安装 Ghost"></a>安装 Ghost</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">cd /srv/www/</div><div class="line">wget http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip</div><div class="line">unzip -d ghost Ghost-0.7.4-zh-full.zip //解压</div><div class="line">cd /srv/www/ghost</div></pre></td></tr></table></figure>
+<h1 id="编辑-ghost-的配置文件"><a href="#编辑-ghost-的配置文件" class="headerlink" title="编辑 ghost 的配置文件"></a>编辑 ghost 的配置文件</h1><p>我们进入 Ghost 系统目录，为 Ghost 增加配置文件并配置数据库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">cd /srv/www/ghost</div><div class="line">cp config.example.js config.js</div><div class="line">vi config.js</div><div class="line"></div><div class="line">production: &#123; </div><div class="line"></div><div class="line">    url: &apos;http://reedw.me&apos;, //你的blog地址</div><div class="line">    mail: &#123;&#125;,</div><div class="line">    database: &#123;</div><div class="line">        client: &apos;mysql&apos;,</div><div class="line">        connection: &#123;</div><div class="line">            host     : &apos;127.0.0.1&apos;, </div><div class="line">            user     : &apos;root&apos;, </div><div class="line">            password : &apos;root&apos;, </div><div class="line">            database : &apos;ghost&apos;,</div><div class="line">            charset  : &apos;utf8&apos;</div><div class="line">    &#125;,</div><div class="line">        debug: false</div><div class="line">    &#125;,</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<h1 id="以生产模式运行-Ghost"><a href="#以生产模式运行-Ghost" class="headerlink" title="以生产模式运行 Ghost"></a>以生产模式运行 Ghost</h1><p>安装 forever<br>npm install forever -g<br>运行 ghost<br>cd /srv/www/ghost<br>NODE_ENV=production forever start index.js</p>
 
       
     </div>
@@ -378,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/17/Java编程思想学习笔记（一）---初始化/" rel="next" title="Java编程思想学习笔记（一）---初始化">
-                <i class="fa fa-chevron-left"></i> Java编程思想学习笔记（一）---初始化
+              <a href="/2016/08/17/Java编程思想学习笔记（一）---初始化/" rel="next" title="Java编程思想学习笔记（一）—— 初始化">
+                <i class="fa fa-chevron-left"></i> Java编程思想学习笔记（一）—— 初始化
               </a>
             
           </div>
@@ -469,7 +479,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -512,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-Nginx-的反向代理"><span class="nav-number">1.</span> <span class="nav-text">配置 Nginx 的反向代理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化-VPS"><span class="nav-number">1.</span> <span class="nav-text">初始化 VPS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-mysql"><span class="nav-number">2.</span> <span class="nav-text">安装 mysql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译安装-node-js"><span class="nav-number">3.</span> <span class="nav-text">编译安装 node.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译安装-nginx"><span class="nav-number">4.</span> <span class="nav-text">编译安装 nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行-nginx"><span class="nav-number">5.</span> <span class="nav-text">运行 nginx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置-Nginx-的反向代理"><span class="nav-number">6.</span> <span class="nav-text">配置 Nginx 的反向代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重新启动-Nginx-服务器-让设置生效。"><span class="nav-number">7.</span> <span class="nav-text">重新启动 Nginx 服务器,让设置生效。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改服务器时间"><span class="nav-number">8.</span> <span class="nav-text">修改服务器时间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-Ghost"><span class="nav-number">9.</span> <span class="nav-text">安装 Ghost</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑-ghost-的配置文件"><span class="nav-number">10.</span> <span class="nav-text">编辑 ghost 的配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#以生产模式运行-Ghost"><span class="nav-number">11.</span> <span class="nav-text">以生产模式运行 Ghost</span></a></li></ol></div>
             
 
           </div>
@@ -550,7 +578,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

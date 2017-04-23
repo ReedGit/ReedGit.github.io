@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,20 +90,20 @@
 
 
 
-<meta name="description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成布局设置界面">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中设置功能的实现">
-<meta property="og:url" content="http://yoursite.com/2016/08/14/Android中设置功能的实现/index.html">
+<meta property="og:url" content="http://reedw.me/2016/08/14/Android中设置功能的实现/index.html">
 <meta property="og:site_name" content="Reed">
-<meta property="og:description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成布局设置界面">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5uquycopoj20ls0fot92.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/af7c282fgw1f5urdmp216j20ls0jijs5.jpg">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5ure3zyoqj20oq142abw.jpg">
-<meta property="og:updated_time" content="2017-04-22T09:03:39.000Z">
+<meta property="og:updated_time" content="2017-04-23T06:15:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中设置功能的实现">
-<meta name="twitter:description" content="###前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 ###布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。 布局视图&amp;emsp;&amp;emsp;官方说法是定义首选项，我觉得说成布局设置界面">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/large/af7c282fgw1f5uquycopoj20ls0fot92.jpg">
 
 
@@ -112,7 +112,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/14/Android中设置功能的实现/"/>
+  <link rel="canonical" href="http://reedw.me/2016/08/14/Android中设置功能的实现/"/>
 
 
 
@@ -209,6 +209,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -257,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/Android中设置功能的实现/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/Android中设置功能的实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -304,6 +314,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -328,9 +360,9 @@
       
 
       
-        <p>###前言<br>&emsp;&emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。</p>
-<p>###布局视图<br>&emsp;&emsp;官方说法是定义首选项，我觉得说成布局设置界面视图更合适。</p>
-<p>&emsp;&emsp;按照官方指导，首先需要在 res/xml 目录下定义一个xml文件，通常命名为preferences.xml（可以更改命名）。XML 文件的根节点必须是一个 &lt;PreferenceScreen&gt; 元素，可以在此元素内添加每个 &lt;Preference&gt;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">PreferenceScreen</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">CheckBoxPreference</span></span></div><div class="line">        <span class="attr">android:defaultValue</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"checkbox"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"checkbox"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">PreferenceScreen</span></span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"scree"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"screen"</span></div><div class="line">        <span class="attr">android:persistent</span>=<span class="string">"false"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">SwitchPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"switch"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"switch"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ListPreference</span></span></div><div class="line">            <span class="attr">android:defaultValue</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:entries</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:entryValues</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"list"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"list"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">PreferenceScreen</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">PreferenceCategory</span></span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"category"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"category"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">EditTextPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"edit"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"edit"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">MultiSelectListPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"multi"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"multi"</span></div><div class="line">            <span class="attr">android:entries</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:entryValues</span>=<span class="string">"@array/str_arr"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">PreferenceCategory</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Preference</span> <span class="attr">android:title</span>=<span class="string">"preference"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">intent</span> <span class="attr">android:action</span>=<span class="string">"android.intent.action.VIEW"</span></span></div><div class="line">            <span class="attr">android:data</span>=<span class="string">"http://www.example.com"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">Preference</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">PreferenceScreen</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;在 Android 应用开发过程，多多少少会碰到应用设置的问题，一开始的想法肯定是使用 view 对象构建用户界面，但是 Google 表示这种做法太不友好，应当使用 Android 的 Preference API 构建一个与其他 Android 应用中的用户体验一致的界面（包括系统设置）。</p>
+<h1 id="布局视图"><a href="#布局视图" class="headerlink" title="布局视图"></a>布局视图</h1><p>&emsp;&emsp;官方说法是定义首选项，我觉得说成布局设置界面视图更合适。</p>
+<p>&emsp;&emsp;按照官方指导，首先需要在 res/xml 目录下定义一个 xml 文件，通常命名为 preferences.xml（可以更改命名）。XML 文件的根节点必须是一个 &lt;PreferenceScreen&gt; 元素，可以在此元素内添加每个 &lt;Preference&gt;<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">PreferenceScreen</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">CheckBoxPreference</span></span></div><div class="line">        <span class="attr">android:defaultValue</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"checkbox"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"checkbox"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">PreferenceScreen</span></span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"scree"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"screen"</span></div><div class="line">        <span class="attr">android:persistent</span>=<span class="string">"false"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">SwitchPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"switch"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"switch"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ListPreference</span></span></div><div class="line">            <span class="attr">android:defaultValue</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:entries</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:entryValues</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"list"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"list"</span> /&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">PreferenceScreen</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">PreferenceCategory</span></span></div><div class="line">        <span class="attr">android:key</span>=<span class="string">"category"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"category"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">EditTextPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"edit"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"edit"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">MultiSelectListPreference</span></span></div><div class="line">            <span class="attr">android:key</span>=<span class="string">"multi"</span></div><div class="line">            <span class="attr">android:title</span>=<span class="string">"multi"</span></div><div class="line">            <span class="attr">android:entries</span>=<span class="string">"@array/str_arr"</span></div><div class="line">            <span class="attr">android:entryValues</span>=<span class="string">"@array/str_arr"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">PreferenceCategory</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Preference</span> <span class="attr">android:title</span>=<span class="string">"preference"</span> &gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">intent</span> <span class="attr">android:action</span>=<span class="string">"android.intent.action.VIEW"</span></span></div><div class="line">            <span class="attr">android:data</span>=<span class="string">"http://www.example.com"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">Preference</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">PreferenceScreen</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>这些元素有不同的属性，其中以下三个属性是通用的：</p>
 <ul>
 <li><p>android:key</p>
@@ -355,20 +387,17 @@
 </li>
 </ul>
 <p>具体实现代码见上方代码块</p>
-<p>###值的获取</p>
-<p>想要获取设置项的值，可以通过以下代码实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(<span class="keyword">this</span>);</div><div class="line"><span class="comment">//T t = pref.getXXX(key, defaultValue);</span></div><div class="line">String str = pref.getString(<span class="string">"edit"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="值的获取"><a href="#值的获取" class="headerlink" title="值的获取"></a>值的获取</h1><p>想要获取设置项的值，可以通过以下代码实现：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(<span class="keyword">this</span>);</div><div class="line"><span class="comment">//T t = pref.getXXX(key, defaultValue);</span></div><div class="line">String str = pref.getString(<span class="string">"edit"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure></p>
 <p>同时，可以实时监控设置项值的变化，利用以下代码:</p>
 <p>首先继承OnSharedPreferenceChangeListener接口，在onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key)实现当值发生变化时需要做的操作<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSharedPreferenceChanged</span><span class="params">(SharedPreferences sharedPreferences, String key)</span> </span>&#123;</div><div class="line">        Log.i(<span class="string">"===========&gt;&gt;&gt;&gt;&gt;&gt;"</span>, key);</div><div class="line">        Log.i(<span class="string">"===========&gt;&gt;&gt;&gt;&gt;&gt;"</span>, (findPreference(key) <span class="keyword">instanceof</span> CheckBoxPreference) + <span class="string">""</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>###可能会用到的方法</p>
-<ul>
+<h1 id="可能会用到的方法"><a href="#可能会用到的方法" class="headerlink" title="可能会用到的方法"></a>可能会用到的方法</h1><ul>
 <li><p><strong>实现设置项各个点击事件</strong></p>
 <p>findPreference(key).setOnPreferenceClickListener(……);</p>
 <p>或者</p>
 <p>实现接口OnPreferenceClickListener</p>
 </li>
 </ul>
-<p>###备注</p>
-<ul>
+<h1 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h1><ul>
 <li>如果想要实现Material Design风格的设置界面，可以参考<a href="https://drakeet.me/material-design-settings-activity" target="_blank" rel="external">此博客</a></li>
 <li>其他用法参考<a href="https://developer.android.com/guide/topics/ui/settings.html" target="_blank" rel="external">官方指导文档</a> (需要科学上网)</li>
 </ul>
@@ -467,8 +496,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -490,7 +528,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -524,6 +580,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布局视图"><span class="nav-number">2.</span> <span class="nav-text">布局视图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#值的获取"><span class="nav-number">3.</span> <span class="nav-text">值的获取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可能会用到的方法"><span class="nav-number">4.</span> <span class="nav-text">可能会用到的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#备注"><span class="nav-number">5.</span> <span class="nav-text">备注</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -555,7 +627,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

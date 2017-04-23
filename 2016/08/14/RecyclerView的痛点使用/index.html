@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="##前言 申明：这里不提供封装好的RecylerView库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的RecylerView的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在Android 5.0之后，Google引入Material Design设计，同时为我们带来了ListView的替代品RecylerView。对比ListV">
+<meta name="description" content="前言申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在 Android 5.0 之后，Google 引入 Material Design 设计，同时为我们带来了 ListView 的替代品 RecylerVie">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RecyclerView的痛点使用">
-<meta property="og:url" content="http://yoursite.com/2016/08/14/RecyclerView的痛点使用/index.html">
+<meta property="og:url" content="http://reedw.me/2016/08/14/RecyclerView的痛点使用/index.html">
 <meta property="og:site_name" content="Reed">
-<meta property="og:description" content="##前言 申明：这里不提供封装好的RecylerView库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的RecylerView的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在Android 5.0之后，Google引入Material Design设计，同时为我们带来了ListView的替代品RecylerView。对比ListV">
-<meta property="og:updated_time" content="2017-04-22T09:05:18.000Z">
+<meta property="og:description" content="前言申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在 Android 5.0 之后，Google 引入 Material Design 设计，同时为我们带来了 ListView 的替代品 RecylerVie">
+<meta property="og:updated_time" content="2017-04-23T06:23:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RecyclerView的痛点使用">
-<meta name="twitter:description" content="##前言 申明：这里不提供封装好的RecylerView库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的RecylerView的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在Android 5.0之后，Google引入Material Design设计，同时为我们带来了ListView的替代品RecylerView。对比ListV">
+<meta name="twitter:description" content="前言申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在 Android 5.0 之后，Google 引入 Material Design 设计，同时为我们带来了 ListView 的替代品 RecylerVie">
 
 
 
@@ -108,7 +108,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -128,7 +128,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/14/RecyclerView的痛点使用/"/>
+  <link rel="canonical" href="http://reedw.me/2016/08/14/RecyclerView的痛点使用/"/>
 
 
 
@@ -205,6 +205,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -253,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/14/RecyclerView的痛点使用/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/RecyclerView的痛点使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -300,6 +310,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -324,30 +356,25 @@
       
 
       
-        <p>##前言</p>
-<p>申明：这里不提供封装好的RecylerView库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的RecylerView的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。<br>众所周知，在Android 5.0之后，Google引入Material Design设计，同时为我们带来了ListView的替代品RecylerView。对比ListView, RecyclerView在可扩展性，灵活性上更方便我们自己去定制。话不多说，下面我将从<strong>下拉刷新</strong>、<strong>上拉加载更多</strong>、<strong>自定义分割线</strong>、<strong>item点击事件</strong>阐述我的跟人想法。</p>
-<p>##下拉刷新</p>
-<p>本着用最简便的方式实现需求的原则，我们在下拉刷新这块主要是借助Google提供的SwipeRefreshLayout控件。<br>SwipeRefreshLayout使用起来很简单，代码如下：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。<br>众所周知，在 Android 5.0 之后，Google 引入 Material Design 设计，同时为我们带来了 ListView 的替代品 RecylerView。对比 ListView, RecyclerView 在可扩展性，灵活性上更方便我们自己去定制。话不多说，下面我将从<strong>下拉刷新</strong>、<strong>上拉加载更多</strong>、<strong>自定义分割线</strong>、<strong>item点击事件</strong>阐述我的跟人想法。</p>
+<h1 id="下拉刷新"><a href="#下拉刷新" class="headerlink" title="下拉刷新"></a>下拉刷新</h1><p>本着用最简便的方式实现需求的原则，我们在下拉刷新这块主要是借助 Google 提供的 SwipeRefreshLayout 控件。<br>SwipeRefreshLayout 使用起来很简单，代码如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">android.support.v4.widget.SwipeRefreshLayout</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/refresh"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">android.support.v7.widget.RecyclerView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/recyclerView"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:clipToPadding</span>=<span class="string">"false"</span></div><div class="line">            <span class="attr">android:paddingLeft</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingRight</span>=<span class="string">"16dp"</span></div><div class="line">            <span class="attr">android:paddingTop</span>=<span class="string">"16dp"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">android.support.v4.widget.SwipeRefreshLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>实现下拉刷新，只需要调用SwipeRefreshLayout的监听事件OnRefreshListener，在监听事件方法里实现响应的逻辑就行了</p>
+<p>实现下拉刷新，只需要调用SwipeRefreshLayout的监听事件 OnRefreshListener，在监听事件方法里实现响应的逻辑就行了</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">mRefresh.setOnRefreshListener(<span class="keyword">new</span> SwipeRefreshLayout.OnRefreshListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                texts.clear();</div><div class="line">                i = <span class="number">0</span>;</div><div class="line">                setData();</div><div class="line">                mAdapter.notifyDataSetChanged();</div><div class="line">                mRefresh.setRefreshing(<span class="keyword">false</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;,<span class="number">2000</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>##自定义分割线</p>
-<p>使用RecyclerView时，为了控制item之间的距离，我们既可以通过设置item的margin调整item之间的距离，也可以调用RecyclerView的addItemDecoration()方法设置分割线来控制item之间的距离。这里我们使用的是后者。<br>我们需要自定义一个分割线类继承自RecyclerView.ItemDecoration，重写onDraw()方法（绘制分割线）以及getItemOffsets()方法（设置分割线的大小）。<br>此处给出我的自定义分割线源码</p>
+<h1 id="自定义分割线"><a href="#自定义分割线" class="headerlink" title="自定义分割线"></a>自定义分割线</h1><p>使用 RecyclerView 时，为了控制 item 之间的距离，我们既可以通过设置 item 的 margin 调整 item 之间的距离，也可以调用 RecyclerView 的 addItemDecoration() 方法设置分割线来控制 item 之间的距离。这里我们使用的是后者。<br>我们需要自定义一个分割线类继承自 RecyclerView.ItemDecoration，重写 onDraw() 方法（绘制分割线）以及 getItemOffsets() 方法（设置分割线的大小）。<br>此处给出我的自定义分割线源码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DividerItemDecoration</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ItemDecoration</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> orientation;</div><div class="line"></div><div class="line">    <span class="comment">//转换成整型后分割线尺寸</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> itemSize;</div><div class="line">    <span class="comment">//待传入的分割线尺寸，如果没有传入，初始化的时候默认16</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> size;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line">    <span class="keyword">private</span> Context context;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DividerItemDecoration</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="number">16</span>, LinearLayoutManager.VERTICAL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DividerItemDecoration</span><span class="params">(Context context, <span class="keyword">float</span> size)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, size, LinearLayoutManager.VERTICAL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DividerItemDecoration</span><span class="params">(Context context, <span class="keyword">int</span> orientation)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="number">16</span>, orientation);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DividerItemDecoration</span><span class="params">(Context context, <span class="keyword">float</span> size, <span class="keyword">int</span> orientation)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (orientation != LinearLayoutManager.VERTICAL &amp;&amp; orientation != LinearLayoutManager.HORIZONTAL) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"the orientation is not VERTICAL or HORIZONTAL!"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.context = context;</div><div class="line">        <span class="keyword">this</span>.size = size;</div><div class="line">        <span class="keyword">this</span>.orientation = orientation;</div><div class="line">        initAttrs();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas c, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (orientation == LinearLayoutManager.VERTICAL) &#123;</div><div class="line">            drawVertical(c, parent);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            drawHorizontal(c, parent);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getItemOffsets</span><span class="params">(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (orientation == LinearLayoutManager.VERTICAL) &#123;</div><div class="line">            outRect.set(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, itemSize);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            outRect.set(<span class="number">0</span>, <span class="number">0</span>, itemSize, <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAttrs</span><span class="params">()</span> </span>&#123;</div><div class="line">        itemSize = (<span class="keyword">int</span>) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, size, context.getResources().getDisplayMetrics());</div><div class="line">        mPaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">        mPaint.setColor(Color.TRANSPARENT);</div><div class="line">        mPaint.setStyle(Paint.Style.FILL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 绘制横向item分割线</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> canvas 画布</div><div class="line">     * <span class="doctag">@param</span> parent recyclerView</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawVertical</span><span class="params">(Canvas canvas, RecyclerView parent)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> left = parent.getPaddingLeft();</div><div class="line">        <span class="keyword">int</span> right = parent.getWidth() - parent.getPaddingRight();</div><div class="line">        <span class="keyword">int</span> childCount = parent.getChildCount();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</div><div class="line">            View child = parent.getChildAt(i);</div><div class="line">            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child</div><div class="line">                    .getLayoutParams();</div><div class="line">            <span class="keyword">int</span> top = child.getBottom() + params.bottomMargin;</div><div class="line">            <span class="keyword">int</span> bottom = top + itemSize;</div><div class="line">            canvas.drawRect(left, top, right, bottom, mPaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 绘制横向item分割线</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> canvas 画布</div><div class="line">     * <span class="doctag">@param</span> parent recyclerView</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawHorizontal</span><span class="params">(Canvas canvas, RecyclerView parent)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> top = parent.getPaddingTop();</div><div class="line">        <span class="keyword">int</span> bottom = parent.getHeight() - parent.getPaddingBottom();</div><div class="line">        <span class="keyword">int</span> childCount = parent.getChildCount();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; childCount; i++) &#123;</div><div class="line">            View child = parent.getChildAt(i);</div><div class="line">            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child</div><div class="line">                    .getLayoutParams();</div><div class="line">            <span class="keyword">int</span> left = child.getRight() + params.rightMargin;</div><div class="line">            <span class="keyword">int</span> right = left + itemSize;</div><div class="line">            canvas.drawRect(left, top, right, bottom, mPaint);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>##item点击事件</p>
-<p>RecyclerView本身没有给我们提供类似ListView的setOnItemClickListener的监听事件，所以我们只能自己去实现这样一个监听事件。<br>在我们定义的Adapter中定义一个OnItemClickListener接口，接口中定义一个OnItemClick()方法，之后我们需要对外提供一个方法去实现这个接口。</p>
+<h1 id="item点击事件"><a href="#item点击事件" class="headerlink" title="item点击事件"></a>item点击事件</h1><p>RecyclerView 本身没有给我们提供类似 ListView 的 setOnItemClickListener 的监听事件，所以我们只能自己去实现这样一个监听事件。<br>在我们定义的 Adapter 中定义一个 OnItemClickListener 接口，接口中定义一个 OnItemClick() 方法，之后我们需要对外提供一个方法去实现这个接口。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnItemClickListener</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(View view, <span class="keyword">int</span> position)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">private</span> OnItemClickListener onItemClickListener;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOnItemClickListener</span><span class="params">(OnItemClickListener onItemClickListener)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.onItemClickListener = onItemClickListener;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后在onBindViewHolder中添加如下代码：</p>
+<p>然后在 onBindViewHolder 中添加如下代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (onItemClickListener != <span class="keyword">null</span>) &#123;</div><div class="line">            ((ItemViewHolder) holder).itemView.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                    onItemClickListener.onItemClick(((ItemViewHolder) holder).itemView, holder.getAdapterPosition());</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后，如果需要给item实现点击事件，利用adapter.setOnItemClickListener()实现就可以了</p>
+<p>最后，如果需要给 item 实现点击事件，利用 adapter.setOnItemClickListener() 实现就可以了</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mAdapter.setOnItemClickListener(<span class="keyword">new</span> RecyclerAdapter.OnItemClickListener() &#123;</div><div class="line">     <span class="meta">@Override</span></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(View view, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"click "</span> + (position + <span class="number">1</span>), Toast.LENGTH_SHORT).show();</div><div class="line">     &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>##上拉加载更多<br>上拉加载更多这块，主要是给RecyclerView添加一个底部布局。RecyclerView.Adapter给我们提供了getItemViewType方法来告诉我们每个item是属于正常布局还是属于底部布局</p>
+<h1 id="上拉加载更多"><a href="#上拉加载更多" class="headerlink" title="上拉加载更多"></a>上拉加载更多</h1><p>上拉加载更多这块，主要是给 RecyclerView 添加一个底部布局。 RecyclerView.Adapter 给我们提供了 getItemViewType 方法来告诉我们每个 item 是属于正常布局还是属于底部布局</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemViewType</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (position == texts.size()) &#123;</div><div class="line">       <span class="keyword">return</span> FOOT_TYPE;<span class="comment">//说明该item是底部</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> NORMAL_TYPE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>同时为了实现加载数据，我们通过调用RecyclerView的addOnScrollListener()方法，实现onScrolled()方法和onScrollStateChanged()方法。</p>
+<p>同时为了实现加载数据，我们通过调用 RecyclerView 的 addOnScrollListener() 方法，实现 onScrolled() 方法和 onScrollStateChanged() 方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">mRecyclerView.addOnScrollListener(<span class="keyword">new</span> RecyclerView.OnScrollListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrollStateChanged</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> newState)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> itemLastIndex = mAdapter.getItemCount() - <span class="number">1</span>;<span class="comment">//recyclerView最后一项位置</span></div><div class="line">        <span class="keyword">if</span> (newState  == RecyclerView.SCROLL_STATE_IDLE  &amp;&amp; visibleLastIndex == itemLastIndex) &#123;</div><div class="line">            <span class="keyword">if</span> (i &lt; <span class="number">100</span>) &#123;</div><div class="line">                mAdapter.setLoading(<span class="keyword">true</span>);</div><div class="line">                mAdapter.notifyDataSetChanged();</div><div class="line">                <span class="keyword">new</span> Handler().postDelayed(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                        setData();</div><div class="line">                        mAdapter.setLoading(<span class="keyword">false</span>);</div><div class="line">                        mAdapter.notifyDataSetChanged();</div><div class="line">                   &#125;</div><div class="line">                &#125;, <span class="number">2000</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">               mAdapter.setAll(<span class="keyword">true</span>);</div><div class="line">               mAdapter.notifyDataSetChanged();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onScrolled</span><span class="params">(RecyclerView recyclerView, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onScrolled(recyclerView, dx, dy);</div><div class="line">        visibleLastIndex = manager.findLastCompletelyVisibleItemPosition();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>简单说下思路，调用此监听事件后，当RecyclerView在滑动过程中会不断回调一些数据来表示当前RecyclerView的状态。我们为了实现上拉加载更多，我们需要知道，当RecyclerView滑到底部时，同时继续向上滑动我们就需要加载更多数据，所以在onScrolled()方法中我们利用findLastCompleteVisibleItemPosition()方法来获得当前RecyclerView停止滑动时最后一个可见项的位置是多少，当RecyclerView在滑动状态改变时，我们判断如果RecylerView改变的状态是停止滑动同时当前可见项位置是Adapter除底部项外最后一个，那么这个时候我们就需要加载数据。</p>
-<p>##注</p>
-<ul>
+<p>简单说下思路，调用此监听事件后，当 RecyclerView 在滑动过程中会不断回调一些数据来表示当前 RecyclerView 的状态。我们为了实现上拉加载更多，我们需要知道，当 RecyclerView 滑到底部时，同时继续向上滑动我们就需要加载更多数据，所以在 onScrolled() 方法中我们利用 findLastCompleteVisibleItemPosition() 方法来获得当前 RecyclerView 停止滑动时最后一个可见项的位置是多少，当 RecyclerView 在滑动状态改变时，我们判断如果 RecylerView 改变的状态是停止滑动同时当前可见项位置是 Adapter 除底部项外最后一个，那么这个时候我们就需要加载数据。</p>
+<h1 id="注"><a href="#注" class="headerlink" title="注"></a>注</h1><ul>
 <li>关于自定义分割线的部分主要参见该博客<a href="http://blog.csdn.net/jxxfzgy/article/details/43736385" target="_blank" rel="external">http://blog.csdn.net/jxxfzgy/article/details/43736385</a></li>
 <li>由于作者能力有限，文章若有不足或者错误之处望指正交流</li>
 <li>项目的Github地址：<a href="https://github.com/ReedGit/RecyclerViewDemo" target="_blank" rel="external">https://github.com/ReedGit/RecyclerViewDemo</a></li>
@@ -443,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -466,7 +502,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -500,6 +554,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下拉刷新"><span class="nav-number">2.</span> <span class="nav-text">下拉刷新</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义分割线"><span class="nav-number">3.</span> <span class="nav-text">自定义分割线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#item点击事件"><span class="nav-number">4.</span> <span class="nav-text">item点击事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上拉加载更多"><span class="nav-number">5.</span> <span class="nav-text">上拉加载更多</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注"><span class="nav-number">6.</span> <span class="nav-text">注</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -531,7 +601,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
