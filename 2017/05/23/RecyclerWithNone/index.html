@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="RecyclerView 空数据," />
+  <meta name="keywords" content="RecyclerView," />
 
 
 
@@ -91,14 +91,14 @@
 
 
 <meta name="description" content="前言RecyclerView 现在几乎是每一个 Android 项目都会用到的控件。大家都知道 RecyclerView 通过 Adapter 来将数据和界面进行绑定展示。但是在开发过程中，相信大家都会碰到这样一个需求，当 RecyclerView 绑定的数据集为空时，需要让用户知道当前展示的列表没有数据，否则界面就是一片空白，给用户的体验很不好。 常规实现方式为了实现这一需求有很多种方法">
-<meta name="keywords" content="RecyclerView 空数据">
+<meta name="keywords" content="RecyclerView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="优雅的展示RecyclerView数据集为空的状态">
 <meta property="og:url" content="http://reedw.me/2017/05/23/RecyclerWithNone/index.html">
 <meta property="og:site_name" content="你瞎啊，撞我心上了">
 <meta property="og:description" content="前言RecyclerView 现在几乎是每一个 Android 项目都会用到的控件。大家都知道 RecyclerView 通过 Adapter 来将数据和界面进行绑定展示。但是在开发过程中，相信大家都会碰到这样一个需求，当 RecyclerView 绑定的数据集为空时，需要让用户知道当前展示的列表没有数据，否则界面就是一片空白，给用户的体验很不好。 常规实现方式为了实现这一需求有很多种方法">
 <meta property="og:image" content="http://reedw.me/2017/05/23/RecyclerWithNone/demo.gif">
-<meta property="og:updated_time" content="2017-06-03T07:04:59.000Z">
+<meta property="og:updated_time" content="2017-08-26T06:45:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="优雅的展示RecyclerView数据集为空的状态">
 <meta name="twitter:description" content="前言RecyclerView 现在几乎是每一个 Android 项目都会用到的控件。大家都知道 RecyclerView 通过 Adapter 来将数据和界面进行绑定展示。但是在开发过程中，相信大家都会碰到这样一个需求，当 RecyclerView 绑定的数据集为空时，需要让用户知道当前展示的列表没有数据，否则界面就是一片空白，给用户的体验很不好。 常规实现方式为了实现这一需求有很多种方法">
@@ -360,7 +360,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>RecyclerView 现在几乎是每一个 Android 项目都会用到的控件。大家都知道 RecyclerView 通过 Adapter 来将数据和界面进行绑定展示。但是在开发过程中，相信大家都会碰到这样一个需求，当 RecyclerView 绑定的数据集为空时，需要让用户知道当前展示的列表没有数据，否则界面就是一片空白，给用户的体验很不好。</p>
 <h1 id="常规实现方式"><a href="#常规实现方式" class="headerlink" title="常规实现方式"></a>常规实现方式</h1><p>为了实现这一需求有很多种方法，比如在 RecyclerView 上覆盖一层布局，当数据集为空时显示该布局，否则就隐藏该布局。这种方法是一般思路，最容易想到。但是个人很不喜欢的一点就是繁琐，试想一下，你需要在每一个 RecyclerView 上都嵌套一个布局，同时当项目比较大时，多个地方都用到 RecyclerView，那么需要重复写很多遍，当然此处可以做封装界面，但是数据的逻辑交互也需要单独判断，不易于维护，并且造成相似代码的冗余。</p>
-<h1 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h1><p>本人在想，有没有一种简答的方式，无需封装 ui, 我只关心 RecyclerView 数据集的变化，当数据集为空时自动显示为空的提示界面，同时又不希望造成多余的布局冗余，直接利用现成的 RecyclerView 展示提示界面。但是至于提示界面我又希望可以定制化，这样在不同的需求下可以展示不同的提示信息。所以我们需要实现以下几点功能：</p>
+<h1 id="期望"><a href="#期望" class="headerlink" title="期望"></a>期望</h1><p>本人在想，有没有一种简单的方式，无需封装 ui, 我只关心 RecyclerView 数据集的变化，当数据集为空时自动显示为空的提示界面，同时又不希望造成多余的布局冗余，直接利用现成的 RecyclerView 展示提示界面。但是至于提示界面我又希望可以定制化，这样在不同的需求下可以展示不同的提示信息。所以我们需要实现以下几点功能：</p>
 <ol>
 <li>直接利用 RecyclerView 展示提示信息</li>
 <li>当数据为空的时候自动显示提示界面，有数据的时候显示正常界面</li>
@@ -408,7 +408,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/RecyclerView-空数据/" rel="tag"># RecyclerView 空数据</a>
+            <a href="/tags/RecyclerView/" rel="tag"># RecyclerView</a>
           
         </div>
       
@@ -523,7 +523,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
