@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Permission," />
 
 
 
@@ -90,15 +90,17 @@
 
 
 
-<meta name="description" content="Everything I Never Told You!">
-<meta property="og:type" content="website">
-<meta property="og:title" content="你瞎啊，撞我心上了">
-<meta property="og:url" content="http://reedw.me/page/2/index.html">
+<meta name="description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
+<meta name="keywords" content="Permission">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PermissionAccess的使用">
+<meta property="og:url" content="http://reedw.me/2017/08/26/PermissionAccess的使用/index.html">
 <meta property="og:site_name" content="你瞎啊，撞我心上了">
-<meta property="og:description" content="Everything I Never Told You!">
+<meta property="og:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
+<meta property="og:updated_time" content="2017-08-26T08:29:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你瞎啊，撞我心上了">
-<meta name="twitter:description" content="Everything I Never Told You!">
+<meta name="twitter:title" content="PermissionAccess的使用">
+<meta name="twitter:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://reedw.me/page/2/"/>
+  <link rel="canonical" href="http://reedw.me/2017/08/26/PermissionAccess的使用/"/>
 
 
 
 
 
-  <title>你瞎啊，撞我心上了</title>
+  <title> PermissionAccess的使用 | 你瞎啊，撞我心上了 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,9 +159,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,9 +252,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -263,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/">
+    <link itemprop="mainEntityOfPage" href="http://reedw.me/2017/08/26/PermissionAccess的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Reed">
@@ -284,10 +284,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/" itemprop="url">
-                  Android 应用中分享到微信好友和朋友圈的实现
-                </a>
+                PermissionAccess的使用
               
             
           </h1>
@@ -302,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T00:26:11+08:00">
-                2016-08-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T15:22:33+08:00">
+                2017-08-26
               </time>
             
 
@@ -312,28 +309,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -359,205 +334,80 @@
       
 
       
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点：</p>
+<pre><code>1. 使用起来比较麻烦，并没有达到十分便利的程度
+2. 库的大小不够精简，会增加应用的体积
+</code></pre><p>所以本着折腾自己的原则，我自己动手封装了一个库。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在 module 里的 build.gradle 里添加如下代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'me.reed.permissionaccess:permissionaccess:1.0.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之后在需要进行权限请求的地方添加如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">PermissionAccess.getInstance().requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)</div><div class="line">                    .setRationale(<span class="string">"测试"</span>)<span class="comment">//权限使用的解释</span></div><div class="line">                    .setCallback(<span class="keyword">new</span> PermissionAccess.PermissionCallback() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionError</span><span class="params">(List&lt;String&gt; permissions)</span> </span>&#123;</div><div class="line">                            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissions.size(); i++) &#123;</div><div class="line">                                Log.i(<span class="string">"未通过的权限"</span>, permissions.get(i));</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionSuccess</span><span class="params">()</span> </span>&#123;</div><div class="line">                            Log.i(<span class="string">"权限结果"</span>, <span class="string">"通过"</span>);</div><div class="line">                        &#125;</div><div class="line">                    &#125;)<span class="comment">//权限请求回调</span></div><div class="line">                    .start(MainActivity.<span class="keyword">this</span>);<span class="comment">//开始请求</span></div></pre></td></tr></table></figure></p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>我设计的这个库采用的开启一个新的空 Activity，在这个空的 Activity 进行权限请求。如需了解代码细节，可以点击查看<a href="https://github.com/ReedGit/PermissionAccess" target="_blank" rel="external">源码</a>.</p>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          前言实现分享到微信好友和朋友圈的功能其实很简单，官方文档其实还是比较详细的，只是在创建应用的过程比较费（dan）事（teng），好在微信的审核效率还可以，所以这篇博客简单为大家介绍下这个功能的实现，同时方便自己日后查看。话不多说，下面进入正题。
-申请 AppID这部分大家去微信开发者平台注册账号按照
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://reedw.me/2016/08/14/RecyclerView的痛点使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Reed">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="你瞎啊，撞我心上了">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/14/RecyclerView的痛点使用/" itemprop="url">
-                  RecyclerView的痛点使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-14T00:25:37+08:00">
-                2016-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Permission/" rel="tag"># Permission</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-          前言申明：这里不提供封装好的 RecylerView 库，碍于作者能力，只能提供一些思路和想法。同时，这不是一篇基础性的 RecylerView 的使用文章，文章中我将主要对我本人在使用过程遇到的通点进行归纳，并提供自己的解决方法。众所周知，在 Android 5.0 之后，Google 引入 Ma
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/08/14/RecyclerView的痛点使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/23/RecyclerWithNone/" rel="prev" title="优雅的展示RecyclerView数据集为空的状态">
+                优雅的展示RecyclerView数据集为空的状态 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -565,6 +415,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -584,8 +438,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -658,6 +521,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -771,6 +650,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
