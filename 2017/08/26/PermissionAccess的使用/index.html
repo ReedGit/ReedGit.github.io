@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
+<meta name="description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十分便利的程度 2.">
 <meta name="keywords" content="Permission">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PermissionAccess的使用">
 <meta property="og:url" content="http://reedw.me/2017/08/26/PermissionAccess的使用/index.html">
 <meta property="og:site_name" content="你瞎啊，撞我心上了">
-<meta property="og:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
-<meta property="og:updated_time" content="2017-08-26T08:32:46.000Z">
+<meta property="og:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十分便利的程度 2.">
+<meta property="og:updated_time" content="2017-09-23T07:14:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PermissionAccess的使用">
-<meta name="twitter:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十">
+<meta name="twitter:description" content="前言众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点： 1. 使用起来比较麻烦，并没有达到十分便利的程度 2.">
 
 
 
@@ -356,13 +356,13 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点：</p>
-<pre><code>1. 使用起来比较麻烦，并没有达到十分便利的程度
-2. 库的大小不够精简，会增加应用的体积
-</code></pre><p>所以本着折腾自己的原则，我自己动手封装了一个库。</p>
-<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在 module 里的 build.gradle 里添加如下代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'me.reed.permissionaccess:permissionaccess:1.0.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>众所周知，Android 6.0 之后，引入了权限请求机制，鉴于目前 Android 8.0 已经发布了，应该没有开发者不清楚这个机制的使用了，此处就不过多解释。但是由于权限请求的过程比较繁琐，而且需要在每一处使用权限时都需要考虑权限的获取，很多第三方库的出现便是为了解决这一问题。这些第三方库的封装各有千秋，但我都不是很喜欢，主要有两点：</p>
+<pre><code>1. 使用起来比较麻烦，并没有达到十分便利的程度
+2. 库的大小不够精简，会增加应用的体积
+</code></pre><p>所以本着折腾自己的原则，我自己动手封装了一个库。</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在 module 里的 build.gradle 里添加如下代码：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'me.reed.permissionaccess:permissionaccess:1.0.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>之后在需要进行权限请求的地方添加如下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">PermissionAccess.getInstance().requestPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION)</div><div class="line">                    .setRationale(<span class="string">"测试"</span>)<span class="comment">//权限使用的解释</span></div><div class="line">                    .setCallback(<span class="keyword">new</span> PermissionAccess.PermissionCallback() &#123;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionError</span><span class="params">(List&lt;String&gt; permissions)</span> </span>&#123;</div><div class="line">                            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; permissions.size(); i++) &#123;</div><div class="line">                                Log.i(<span class="string">"未通过的权限"</span>, permissions.get(i));</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                        <span class="meta">@Override</span></div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPermissionSuccess</span><span class="params">()</span> </span>&#123;</div><div class="line">                            Log.i(<span class="string">"权限结果"</span>, <span class="string">"通过"</span>);</div><div class="line">                        &#125;</div><div class="line">                    &#125;)<span class="comment">//权限请求回调</span></div><div class="line">                    .start(MainActivity.<span class="keyword">this</span>);<span class="comment">//开始请求</span></div></pre></td></tr></table></figure></p>
-<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>我设计的这个库采用的开启一个新的空 Activity，在这个空的 Activity 进行权限请求。如需了解代码细节，可以点击查看<a href="https://github.com/ReedGit/PermissionAccess" target="_blank" rel="external">源码</a>.</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>我设计的这个库采用的开启一个新的空 Activity，在这个空的 Activity 进行权限请求。如需了解代码细节，可以点击查看<a href="https://github.com/ReedGit/PermissionAccess" target="_blank" rel="external">源码</a>.</p>
 
       
     </div>
@@ -553,7 +553,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>
