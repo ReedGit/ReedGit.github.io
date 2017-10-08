@@ -97,6 +97,7 @@
 <meta property="og:url" content="http://reedw.me/2016/08/14/关于Retrofit 2.0的使用/index.html">
 <meta property="og:site_name" content="你瞎啊，撞我心上了">
 <meta property="og:description" content="前言前不久 Retrofit 2.0 正式发布，一直很想试试看这款很火的网络库，所以最近有点时间稍微研究了下 Retrofit 2.0 的使用。苦于网上虽然有很多相关教程，但是很少有代码示例和使用说明，所以，我写点自己对于 Retrofit 使用上的理解，并附上自己的 demo 源码。 配置在工程里添加网络访问权限是必须的，所以在AndroidManifest.xml中添加如下代码1&amp;lt;use">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-23T05:53:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于Retrofit 2.0的使用">
@@ -363,7 +364,7 @@
 <p>coverter-gson 可以方便的把返回结果转成对象模型，而 converter-scalars 则可以把返回结果转成String。<br>如果需要将返回数据转成其他类型，也可以引入其他一些包</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-jackson'</span></div><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-moshi'</span></div><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-protobuf'</span></div><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-wire'</span></div><div class="line">compile <span class="string">'com.squareup.retrofit2:converter-simplexml'</span></div></pre></td></tr></table></figure>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p><strong>定义一个接口，用于 http 请求</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GitHubService</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"users"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">listRepos</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 参数比较少的情况下，可以直接传出参数名和参数值</div><div class="line">     * <span class="doctag">@param</span> page 参数值</div><div class="line">     * <span class="doctag">@return</span> 返回请求</div><div class="line">     */</div><div class="line">    <span class="meta">@GET</span>(<span class="string">"repositories/892275/contributors"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">repos</span><span class="params">(@Query(<span class="string">"page"</span>)</span><span class="keyword">int</span> page)</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 参数比较多时，可以以map的形式传入参数名和值</div><div class="line">     * <span class="doctag">@param</span> options 参数Map</div><div class="line">     * <span class="doctag">@return</span> 返回请求</div><div class="line">     */</div><div class="line">    <span class="meta">@GET</span>(<span class="string">"user/repos"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">getRequestWithMap</span><span class="params">(@QueryMap Map&lt;String, String&gt; options)</span></span>;</div><div class="line"></div><div class="line">    <span class="meta">@FormUrlEncoded</span></div><div class="line">    <span class="meta">@POST</span>(<span class="string">"/some/endpoint"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">getPostWithMap</span><span class="params">(@FieldMap Map&lt;String, String&gt; names)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 其他的一些使用方式可以参考官方使用说明</div><div class="line">     * http://square.github.io/retrofit/</div><div class="line">     */</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GitHubService</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"users"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">listRepos</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 参数比较少的情况下，可以直接传出参数名和参数值</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> page 参数值</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> 返回请求</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"repositories/892275/contributors"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">repos</span><span class="params">(@Query(<span class="string">"page"</span>)</span><span class="keyword">int</span> page)</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 参数比较多时，可以以map的形式传入参数名和值</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> options 参数Map</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> 返回请求</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"user/repos"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">getRequestWithMap</span><span class="params">(@QueryMap Map&lt;String, String&gt; options)</span></span>;</div><div class="line"></div><div class="line">    <span class="meta">@FormUrlEncoded</span></div><div class="line">    <span class="meta">@POST</span>(<span class="string">"/some/endpoint"</span>)</div><div class="line">    <span class="function">Call&lt;String&gt; <span class="title">getPostWithMap</span><span class="params">(@FieldMap Map&lt;String, String&gt; names)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 其他的一些使用方式可以参考官方使用说明</span></div><div class="line"><span class="comment">     * http://square.github.io/retrofit/</span></div><div class="line"><span class="comment">     */</span></div></pre></td></tr></table></figure>
 <p><strong>创建 Retrofit 实例</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                .baseUrl(<span class="string">"https://api.github.com/"</span>)</div><div class="line">                <span class="comment">//解析结果为需要的类型</span></div><div class="line">                .addConverterFactory(ScalarsConverterFactory.create())</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .build();</div></pre></td></tr></table></figure>
 <p><strong>发起请求</strong></p>
@@ -416,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/Android中利用volley同时上传文件和文本参数/" rel="next" title="Android中利用volley同时上传文件和文本参数">
-                <i class="fa fa-chevron-left"></i> Android中利用volley同时上传文件和文本参数
+              <a href="/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/" rel="next" title="Android 应用中分享到微信好友和朋友圈的实现">
+                <i class="fa fa-chevron-left"></i> Android 应用中分享到微信好友和朋友圈的实现
               </a>
             
           </div>
@@ -426,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/14/Android应用中分享到微信好友和朋友圈的实现/" rel="prev" title="Android 应用中分享到微信好友和朋友圈的实现">
-                Android 应用中分享到微信好友和朋友圈的实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/14/Android中利用volley同时上传文件和文本参数/" rel="prev" title="Android中利用volley同时上传文件和文本参数">
+                Android中利用volley同时上传文件和文本参数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -500,7 +501,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -522,7 +523,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
